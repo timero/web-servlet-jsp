@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>FirstMavenServlet</display-name>
+  
+  <context-param>
+  	<param-name>admin-user</param-name>
+  	<param-value>epam</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>IndexServlet</servlet-name>
+  	<servlet-class>com.epam.training.IndexServlet</servlet-class>
+  	<init-param>
+  		<param-name>Servlet version</param-name>
+  		<param-value>0.1b</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>IndexServlet</servlet-name>
+  	<url-pattern>/index</url-pattern>
+  </servlet-mapping>
+</web-app>
