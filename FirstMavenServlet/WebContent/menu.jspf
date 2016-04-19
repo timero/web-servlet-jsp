@@ -1,0 +1,5 @@
+<menu>
+	<li><a href="http://google.com">google</a></li>
+	<li><a href="http://epam.com">epam</a></li>
+</menu>
+The value of a: ${a}

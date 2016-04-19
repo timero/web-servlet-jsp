@@ -15,6 +15,10 @@ public class TestJspController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        getServletContext().setAttribute("App. scope", "test");
+        getServletContext().setAttribute("App. scope", "test2");
+        getServletContext().removeAttribute("App. scope");
+        
         req.setAttribute("a", "Hello world!");
         req.getRequestDispatcher("test.jsp").forward(req, resp);
     }

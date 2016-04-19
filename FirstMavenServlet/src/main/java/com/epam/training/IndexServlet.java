@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.epam.training.model.User;
-
 public class IndexServlet extends HttpServlet {
 
     private static final String VIEW = "index.jsp";
@@ -21,9 +19,9 @@ public class IndexServlet extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getSession().getAttribute(LoginServlet.USER_PARAMETER);
-        if (user != null && user.isAdmin()) {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {   
+//        User user = (User) request.getSession().getAttribute(LoginServlet.USER_PARAMETER);
+//        if (user != null && user.isAdmin()) {
             request.setAttribute("list", Arrays.asList(1, 2, 3, 4, 5, 6));
             Map<String, String> map = new HashMap<>();
             map.put("a", "a");
@@ -32,9 +30,9 @@ public class IndexServlet extends HttpServlet {
             request.setAttribute("map", map);
             request.setAttribute("version", getServletConfig().getInitParameter("Servlet version"));
             request.getRequestDispatcher(VIEW).forward(request, response);
-        } else {
-            request.getRequestDispatcher("error").forward(request, response);
-        }
+//        } else {
+//            request.getRequestDispatcher("error").forward(request, response);
+//        }
     }
 
 }

@@ -1,23 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>FirstMavenServlet</display-name>
-  
-  <context-param>
-  	<param-name>admin-user</param-name>
-  	<param-value>epam</param-value>
-  </context-param>
-  
-  <servlet>
-  	<servlet-name>IndexServlet</servlet-name>
-  	<servlet-class>com.epam.training.IndexServlet</servlet-class>
-  	<init-param>
-  		<param-name>Servlet version</param-name>
-  		<param-value>0.1b</param-value>
-  	</init-param>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>IndexServlet</servlet-name>
-  	<url-pattern>/index</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>FirstMavenServlet</display-name>
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://epam.com/time</taglib-uri>
+			<taglib-location>/WEB-INF/tags/time.xml</taglib-location>
+		</taglib>
+	</jsp-config>
+	<listener>
+		<listener-class>com.epam.training.ListenerTest</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.epam.training.model.User</listener-class>
+	</listener>
+	<context-param>
+		<param-name>admin-user</param-name>
+		<param-value>epam</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>com.epam.training.IndexServlet</servlet-class>
+		<init-param>
+			<param-name>Servlet version</param-name>
+			<param-value>0.1b</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.html</form-login-page>
+			<form-error-page>/error.html</form-error-page>
+		</form-login-config>
+	</login-config>
+
+	<security-constraint>
+		<display-name>admin pages</display-name>
+		<web-resource-collection>
+			<web-resource-name>admin</web-resource-name>
+			<url-pattern>/index</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin-role</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<security-role>
+		<role-name>admin-role</role-name>
+	</security-role>
+
 </web-app>
