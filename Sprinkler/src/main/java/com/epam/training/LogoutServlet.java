@@ -15,6 +15,6 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.logout();
-        resp.sendRedirect("/Sprinkler/admin/index");
+        resp.sendRedirect(req.getContextPath() + "/admin/index");
     }
 }
