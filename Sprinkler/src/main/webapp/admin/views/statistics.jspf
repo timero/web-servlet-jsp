@@ -4,7 +4,7 @@
 <h2>Actual state</h2>
 <br />
 <c:choose>
-<c:when test="${scheduledItems !=null && scheduledItems.size() !=0 }">
+<c:when test="${actualScheduledItems !=null && actualScheduledItems.size() !=0 }">
 
 <table class="table table-bordered table-hover">
 	<thead>
@@ -17,7 +17,7 @@
 	</thead>
 	<tbody class="table-striped">
 	
-		<c:forEach items="${scheduledItems}" var="scheduledItem">
+		<c:forEach items="${actualScheduledItems}" var="scheduledItem">
        		<tr>
        			<td>${scheduledItem.zoneId}</td>
 	            <td><fmt:formatDate value="${scheduledItem.from}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
@@ -29,7 +29,7 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan="4">Total: ${scheduledItems.size()}</td>
+			<td colspan="4">Total: ${actualScheduledItems.size()}</td>
 		</tr>
 	</tfoot>
 </table>
