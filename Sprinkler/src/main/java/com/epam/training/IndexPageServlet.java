@@ -13,7 +13,7 @@ public class IndexPageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().append("Secret!");
+        req.getRequestDispatcher("views/index.jsp").forward(req, resp);
     }
 
 }
