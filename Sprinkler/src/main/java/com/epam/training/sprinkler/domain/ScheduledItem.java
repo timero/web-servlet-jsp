@@ -7,7 +7,7 @@ public class ScheduledItem {
 	private int id;
 	private Date from;
 	private Date to;
-	private int zoneId;
+	private Zone zone;
 	private boolean recurring;
 
 	public int getId() {
@@ -34,12 +34,12 @@ public class ScheduledItem {
 		this.to = new Date(to.getTime());
 	}
 
-	public int getZoneId() {
-		return zoneId;
+	public Zone getZone() {
+		return zone;
 	}
 
-	public void setZoneId(int zoneId) {
-		this.zoneId = zoneId;
+	public void setZone(Zone zone) {
+		this.zone = zone;
 	}
 
 	public boolean isRecurring() {
