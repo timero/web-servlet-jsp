@@ -58,10 +58,13 @@ public class SprinklerWatcher extends TimerTask {
 
 	@Override
 	public void run() {
-		for (ScheduledItem item : items) {
+		ArrayList<ScheduledItem> copy = new ArrayList<>();
+		copy.addAll(items);
+		for (ScheduledItem item : copy) {
 			checkForStart(item);
 		}
-		ArrayList<ScheduledItem> copy = new ArrayList<>();
+		
+		copy.clear();
 		copy.addAll(startedItems);
 		for (ScheduledItem item : copy) {
 			checkForStop(item);
