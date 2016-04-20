@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+#loginForm {
+	margin: auto;
+	margin-top: 200px;
+	max-width: 500px;
+}
+
+body {
+	background-image: url("bg.jpg");
+	background-repeat: no-repeat;
+}
+
+.input-group {
+	margin-bottom: 10px;
+}
