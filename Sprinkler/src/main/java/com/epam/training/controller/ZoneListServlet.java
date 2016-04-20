@@ -22,14 +22,6 @@ public class ZoneListServlet extends HttpServlet {
 		List<Zone> zones = (List<Zone>)getServletContext().getAttribute("zones");
 		if(zones == null){
 			zones = new ArrayList<>();
-			Zone zone = new Zone();
-			zone.setId(1);
-			zone.setName("Dummy value");
-			zone.setConsumption(10);
-			zones.add(zone);
-			zones.add(zone);
-			zones.add(zone);
-			zones.add(zone);
 		}
 		req.setAttribute("zones", zones);
 		req.getRequestDispatcher("views/list.jsp").forward(req, resp);
