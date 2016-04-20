@@ -44,12 +44,12 @@ public class SprinklerWatcher extends TimerTask {
 
 	private void start(ScheduledItem item) {
 		startedItems.add(item);
-		System.out.println("Item " + item.getId() + " started in zone " + item.getZoneId());
+		System.out.println("Item " + item.getId() + " started in zone " + item.getZone().getId());
 	}
 
 	private void stop(ScheduledItem item) {
 		startedItems.remove(item);
-		System.out.println("Item " + item.getId() + " stopped in zone " + item.getZoneId());
+		System.out.println("Item " + item.getId() + " stopped in zone " + item.getZone().getId());
 	}
 
 	public void setItems(List<ScheduledItem> items) {
