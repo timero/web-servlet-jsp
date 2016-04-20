@@ -22,6 +22,6 @@ public class MailServiceServlet extends HttpServlet {
         MailService ms = new MailService();
         ms.sendMail(to, new EmailMessage(subject, text));
 
-        req.getRequestDispatcher("/Sprinkler/admin/index").forward(req, resp);
+        req.getRequestDispatcher("/admin/index").forward(req, resp);
     }
 }
