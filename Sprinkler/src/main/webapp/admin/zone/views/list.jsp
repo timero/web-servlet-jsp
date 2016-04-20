@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,7 +13,6 @@
 
 <title>Admin index</title>
 </head>
-<body>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -32,7 +31,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       	<li><a href="#">Log</a></li>
-        <li><a href="/Sprinkler/admin/zone/list">Zones</a></li>
+        <li><a href="#">Zones</a></li>
         <li><a href="#">Settings</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -42,16 +41,33 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Welcome!</h3>
-  </div>
-  <div class="panel-body">
-   Admin index
-  </div>
+<body>
+
+<div style="text-align: center; margin: 10px auto">
+<button type="button" class="btn btn-primary">New Zone</button>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<div class="panel panel-default" style="max-width: 90%; margin: 0 auto">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Zones</div>
+  <!-- Table -->
+  <table class="table">
+ 	<tr>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Consuption (Litre/Hour)</th>
+	<th>Operations</th>
+	</tr>
+   	<c:forEach items="${zones}" var="zone">
+   	<tr>
+    	<td>${zone.id}</td>
+    	<td>${zone.name}</td>
+    	<td>${zone.consumption}</td>
+    	<td><a href="#"><button type="button" class="btn btn-danger" style="padding: 1px">Delete</button></a></td>
+   	</tr>
+	</c:forEach>    
+  </table>
+</div>
+
 </body>
 </html>
